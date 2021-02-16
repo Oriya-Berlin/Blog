@@ -1,0 +1,25 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <img class="rounded-circle" src="{{ object.author.profile.profile_img.url }}" height="30" width="30">
+        {{object.author}}
+    </div>
+    <h1>sometho</h1>
+    <div class="card-body">
+        <h5 class="card-title">{{object.title}}</h5>
+        <p class="card-text">{{object.content}}</p>
+    </div>
+    <div class="card-footer border-info ">{{ object.date|date:"F d, Y" }}</div>
+    {% if object.author == user %}
+    <div>
+        <a class="nav-link active" aria-current="page" href="{% url 'post-delete' object.id %}">Delete</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'post-update' object.id %}">Update</a>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

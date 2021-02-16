@@ -12,6 +12,12 @@
                 <p class="text-secondary">{{ user.email }}</p>
             </div>
         </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token%}
+            {{ user_update_form|crispy }}
+            {{ profile_update_form|crispy }}
+            <button type="submit">Save</button>
+        </form>
     </div>
 {% endblock content %}
 

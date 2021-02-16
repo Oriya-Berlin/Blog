@@ -6,9 +6,13 @@
     {%for item in posts %}
     <br>
     <div class="card border-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">{{item.author}}</div>
+            <div class="card-header">
+                <img class="rounded-circle" src="{{ item.author.profile.profile_img.url }}" height="30" width="30">
+                {{item.author}}
+            </div>
+
     <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
+        <h5 class="card-title"><a class="article-title" href="{% url 'post-detail' item.id %}">{{ item.title }}</a></h5>
         <p class="card-text">{{item.content}}</p>
     </div>
         <div class="card-footer border-info ">{{ item.date|date:"F d, Y" }}</div>
