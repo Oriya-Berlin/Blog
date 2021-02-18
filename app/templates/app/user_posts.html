@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Home Page</h1>
+<h1> {{ view.kwargs.username }} Posts  ({{ page_obj.paginator.count }})</h1>
 {%for item in posts %}
 <br>
 <div class="card border-info mb-3" style="max-width: 18rem;">
@@ -17,7 +17,7 @@
     </div>
     <div class="card-footer border-info ">{{ item.date|date:"F d, Y" }}</div>
 </div>
-    {% endfor %}
+{% endfor %}
 
 
 <!-- pagination -->

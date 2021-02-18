@@ -5,7 +5,7 @@
 <div class="card border-info mb-3" style="max-width: 18rem;">
     <div class="card-header">
         <img class="rounded-circle" src="{{ object.author.profile.profile_img.url }}" height="30" width="30">
-        {{object.author}}
+        <a href="{% url 'user-posts' object.author.username %}">{{object.author}}</a>
     </div>
     <h1>sometho</h1>
     <div class="card-body">
